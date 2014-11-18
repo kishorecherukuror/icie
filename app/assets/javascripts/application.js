@@ -13,4 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+// require_tree .
+//= require "js/jquery.min.js"
+//= require "js/bootstrap.js"
+//= require "js/charts/sparkline/jquery.sparkline.min.js"
+//= require "js/app.js"
+//= require "js/app.plugin.js"
+//= require "js/app.data.js"
