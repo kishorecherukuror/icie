@@ -1,6 +1,6 @@
 class NewsController < ApplicationController
   before_action :set_news, only: [:show, :edit, :update, :destroy]
-   load_and_authorize_resource :except => [:grid_view]
+  before_filter :check_permision, :only => [:new, :crezte, :edit, :update, :destroy]
   respond_to :html
 
   def index
@@ -20,10 +20,10 @@ class NewsController < ApplicationController
   def edit
   end
 
-  def create
-    @news = News.new(news_params)
-    @news.save
-    redirect_to news_path
+  def create 
+      @news = News.new(news_params)
+      @news.save
+    redirect_to "/news"
   end
 
   def update
@@ -51,16 +51,14 @@ class NewsController < ApplicationController
       @news = News.find(params[:id])
     end
 
-    def like_params
-      params.require(:news).permit(:title, :content, :points, :image_a)
-    end
-
-    def comment_params
-      params.require(:news).permit(:title, :content, :points, :image_a)
-    end
-
     def news_params
       params.require(:news).permit(:title, :content, :points, :image_a)
+    end
+
+    def check_permision
+      if current_user.role!=1
+        redirect_to "/news"
+      end
     end
     
 end
