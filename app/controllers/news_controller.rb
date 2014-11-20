@@ -1,6 +1,6 @@
 class NewsController < ApplicationController
   before_action :set_news, only: [:show, :edit, :update, :destroy]
-
+   load_and_authorize_resource :except => [:grid_view]
   respond_to :html
 
   def index
@@ -23,17 +23,27 @@ class NewsController < ApplicationController
   def create
     @news = News.new(news_params)
     @news.save
-    respond_with(@news)
+    redirect_to news_path
   end
 
   def update
     @news.update(news_params)
-    respond_with(@news)
+    redirect_to news_path
   end
 
   def destroy
     @news.destroy
-    respond_with(@news)
+    redirect_to news_path
+  end
+  def grid_view
+    @news = News.all
+    
+  end
+  def like
+    Like.create(:user_id=>current_user.id, :news_id=>params[:news_id])
+  end
+  def comment
+    Comment.create(:content=>params[:content], :user_id=>current_user.id, :news_id=>params[:news_id])
   end
 
   private
@@ -41,7 +51,16 @@ class NewsController < ApplicationController
       @news = News.find(params[:id])
     end
 
+    def like_params
+      params.require(:news).permit(:title, :content, :points, :image_a)
+    end
+
+    def comment_params
+      params.require(:news).permit(:title, :content, :points, :image_a)
+    end
+
     def news_params
       params.require(:news).permit(:title, :content, :points, :image_a)
     end
+    
 end
