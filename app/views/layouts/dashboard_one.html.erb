@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EiceApp</title>
+  <%= stylesheet_link_tag    "dashboard_one", media: "all", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<section class="hbox stretch">
+<%= render "/shared/dashboard_one_aside"%>
+
+<%= yield %>
+</section>
+  <%= javascript_include_tag "dashboard_one", "data-turbolinks-track" => true %>
+
+</body>
+</html>

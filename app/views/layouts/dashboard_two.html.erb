@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EiceApp</title>
+  <%= stylesheet_link_tag    "dashboard_two", media: "all", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+ <section class="vbox">
+ <%= render "/shared/dashboard_two_header"%>
+ <section>
+      <section class="hbox stretch">
+ <%= render "/shared/dashboard_one_aside"%>
+
+<%= yield %>
+</section>
+</section>
+<footer class="footer bg-dark">
+      <p>This is a footer</p>
+    </footer>
+</section>
+  <%= javascript_include_tag "dashboard_two", "data-turbolinks-track" => true %>
+
+</body>
+</html>

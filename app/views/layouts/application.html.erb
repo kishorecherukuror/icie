@@ -6,9 +6,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+ <section class="hbox stretch">
+ <%= render "/shared/welcome_aside"%>
 <%= yield %>
+</section>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-
 </body>
 </html>
