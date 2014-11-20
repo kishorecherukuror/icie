@@ -1,0 +1,38 @@
+
+<div class="col-md-4 col-md-offset-4 m-t-lg">
+        <section class="panel">
+          <header class="panel-heading bg bg-primary text-center">
+            Sign up
+          </header>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html=>{ :class=>"panel-body"}) do |f| %>
+          
+            <!-- <div class="form-group">
+              <label class="control-label">Display name</label>
+              <input type="text" placeholder="eg. Your name or company" class="form-control">
+            </div> -->
+            <div class="form-group">
+              <label class="control-label">Your email address</label>
+               <%= f.email_field :email, autofocus: true, :placeholder=>"test@example.com" ,:class=>"form-control" %>
+             </div>
+            <div class="form-group">
+              <label class="control-label">Type a password</label>
+               <%= f.password_field :password, autocomplete: "off", :id=>"inputPassword", :placeholder=>"Password", :class=>"form-control" %>
+             
+            </div>
+            <div class="form-group">
+              <label class="control-label">Confirmation password</label>
+               <%= f.password_field :password_confirmation, autocomplete: "off", :id=>"inputPassword", :placeholder=>"Password", :class=>"form-control" %>
+             
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"> Agree the <a href="#">terms and policy</a>
+              </label>
+            </div>
+            <button type="submit" class="btn btn-info">Sign up</button>
+            <div class="line line-dashed"></div>
+            <p class="text-muted text-center"><small>Already have an account?</small></p>
+            <a href="/users/sign_in" class="btn btn-white btn-block">Sign in</a>
+          <%end%>
+        </section>
+      </div>
