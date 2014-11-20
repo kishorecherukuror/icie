@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20141120165741) do
   create_table "news", force: true do |t|
     t.string   "title"
     t.text     "content"
-    t.integer  "points"
+    t.integer  "points",               default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_a_file_name"
