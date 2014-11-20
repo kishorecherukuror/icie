@@ -13,8 +13,9 @@ group :production do
 	gem 'pg'
 end
 gem 'devise'
-
-
+gem "paperclip"
+gem "paperclip-dropbox"
+gem 'ckeditor'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

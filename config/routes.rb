@@ -1,5 +1,8 @@
 EiceApp::Application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
+  resources :news
+
   devise_for :users
 
   get "dashboard_two/index"

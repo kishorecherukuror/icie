@@ -1,0 +1,42 @@
+<section id="content">
+      <section class="vbox">
+        <header class="header bg-dark">
+          <p>News </span></p>
+        </header>
+        <section class="scrollable wrapper">
+          <div class="row">
+            <div class="col-lg-12">
+              <h3 class="font-thin">Listing All News.</h3>
+            </div>
+          </div>
+          <div class="table-responsive">
+                  <table class="table table-striped b-t text-sm">
+                    <thead>
+                      <tr>
+                        
+                        <th class="th-sortable" data-toggle="class">Title
+                          
+                        </th>
+                        <th>Points</th>
+                        <th>Image</th>
+                       <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% @news.each do |n| %>
+                        <tr>
+                          
+                          <td><%= n.title %></td>
+                          <td><%= n.points %></td>
+                          <td ><img src="<%= n.image_a %>" style="width:30px"></td>
+                          <td style="font-size: 20px"><a href="<%= news_path(n) %>"><i class="fa fa-hand-o-left"></i></a> &nbsp; <a href="<%= edit_news_path(n) %>"><i class="fa fa-pencil"></i> </a>&nbsp; <a href="<%= news_path(n) %>" data-method="delete" rel="nofollow" data-confirm="Are you sure want to delete news?"><i class="fa fa-trash-o"></i></a>
+                           </td>
+                        </tr>
+                      <% end %>
+                      </tbody>
+                 </table>
+                </div>
+        </section>
+     </section>
+
+
