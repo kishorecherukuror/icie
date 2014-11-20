@@ -1,4 +1,6 @@
 EiceApp::Application.routes.draw do
+  get "dashboard_two/index"
+  get "dashboard_one/index"
   root 'welcome#index'
 
   get "welcome/index"
