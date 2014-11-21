@@ -1,1 +1,1 @@
-$("#like_<%=params[:news_id]%>").css("display","none")
+$("#like_<%=@news.id%>").html("<b>You & Likes (<%= @news.likes.count%>)</b>")
