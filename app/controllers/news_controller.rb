@@ -44,6 +44,7 @@ class NewsController < ApplicationController
     Like.create(:user_id=>current_user.id, :news_id=>params[:news_id])
   end
   def comment
+    @news = News.find(params[:news_id])
     Comment.create(:content=>params[:content], :user_id=>current_user.id, :news_id=>params[:news_id])
   end
 

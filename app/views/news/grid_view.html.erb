@@ -35,14 +35,15 @@
                       <%= link_to '<i class="fa fa-thumbs-up" style="width:25px"></i>'.html_safe, "/news/like?news_id=#{n.id}", :remote => true, :onclick=>"$(this).hide();"  unless n.is_liked(current_user) %>
                         <a href="#"> </a> <b>Likes (<%= n.likes.count%>)</b>
                         </span>
-                         <a href="#"><i class="fa fa-comment-o"></i> Comments (25)</a>
+                         <a href="#"><i class="fa fa-comment-o"></i> Comments (<span id="comment_<%= n.id %>"><%= n.comments.count %></span>)</a>
                       </small>
                     </div>
                     <footer class="panel-footer pos-rlt">
                       <span class="arrow top"></span>
-                      <form class="pull-out">
-                        <input type="text" class="form-control no-border input-lg text-sm" placeholder="Write a comment...">
-                      </form>
+                      <%= form_tag("/news/comment", :method=>"get", :class=>"pull-out", :remote=>true) do %>
+                        <%= hidden_field_tag 'news_id', n.id %>
+                        <input type="text" name="content" class="form-control no-border input-lg text-sm" id="comment_text_<%= n.id %>" placeholder="Write a comment...">
+                      <%end%>
                     </footer>
                   </section>
                 </div>
