@@ -1,5 +1,6 @@
 EiceApp::Application.routes.draw do
 
+  resources :employees
   mount Ckeditor::Engine => '/ckeditor'
   resources :news do
     get 'grid_view', on: :collection

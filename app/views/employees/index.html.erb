@@ -1,0 +1,50 @@
+<section id="content">
+      <section class="vbox">
+        <header class="header bg-dark">
+          <p>Employees </span></p>
+        </header>
+        <section class="scrollable wrapper">
+          <div class="row">
+            <div class="col-lg-12">
+              <h3 class="font-thin">Listing All Employees.</h3>
+            </div>
+          </div>
+          <div class="table-responsive">
+                  <table class="table table-striped b-t text-sm">
+                    <thead>
+                      <tr>
+                        
+                        <th class="th-sortable" data-toggle="class">Email
+                          
+                        </th>
+                        <th>Full Name</th>
+                        <th>Poins</th>
+                        <th>Contact</th>
+                        <th>Address</th>
+                       <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% @employees.each do |n| %>
+                        <tr>
+                          
+                          <td><%= n.email %></td>
+                          <td><%= n.full_name %></td>
+                          <td><%= n.points %></td>
+                          <td><%= n.contact %></td>
+                          <td><%= n.address %></td>
+                          
+                          <td style="font-size: 20px">
+                          <% if can? :update, n %>
+                            <a href="<%= edit_employee_path(n) %>"><i class="fa fa-pencil"></i> </a>&nbsp; <a href="<%= employee_path(n) %>" data-method="delete" rel="nofollow" data-confirm="Are you sure want to delete employees?"><i class="fa fa-trash-o"></i></a>
+                            </td>
+                          <% end %>
+                        </tr>
+                      <% end %>
+                      </tbody>
+                 </table>
+                </div>
+        </section>
+     </section>
+
+
