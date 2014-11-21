@@ -40,6 +40,7 @@ class NewsController < ApplicationController
     
   end
   def like
+    @news = News.find(params[:news_id])
     Like.create(:user_id=>current_user.id, :news_id=>params[:news_id])
   end
   def comment
