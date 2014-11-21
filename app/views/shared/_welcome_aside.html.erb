@@ -100,10 +100,15 @@
                     <a href="/news">All</a>
                   </li>
                   <li>
-                    <a href="/news/new">
-                      New News
-                    </a>
+                    <a href="/news/grid_view">Grid View</a>
                   </li>
+                  <% if current_user.role == 1 %>
+                    <li>
+                      <a href="/news/new">
+                        New News
+                      </a>
+                    </li>
+                  <% end %>
                 </ul>
               </li>
               

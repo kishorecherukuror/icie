@@ -1,7 +1,11 @@
 EiceApp::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
-  resources :news
+  resources :news do
+    get 'grid_view', on: :collection
+    get 'like', on: :collection
+    get 'comment', on: :collection
+  end
 
   devise_for :users
 

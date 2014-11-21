@@ -12,6 +12,7 @@ end
 group :production do
 	gem 'pg'
 end
+gem "cancan"
 gem 'devise'
 gem "paperclip"
 gem "paperclip-dropbox"
