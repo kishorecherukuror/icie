@@ -18,13 +18,13 @@
                           <img src="<%= n.image_a %>" class="img-circle">
                         </a>
                         <div class="clear ">
-                          <a href="#"><strong>Jonathan Omish</strong></a>
-                          <small class="block text-muted">San Francisco, USA</small>
+                          <a href="#"><strong><%= n.title %></strong></a>
+                          <small class="block text-muted"></small>
                         </div>
                         
                       </div>
                         <p>
-                          <%= n.title %>
+                          <%= n.content.html_safe %>
                         </p>
                        <div class="pull-right">
                        <a href="<%= news_path(n) %>">view Detail</a>
@@ -32,7 +32,7 @@
                      
                       <small class="">
                       <%= link_to '<i class="fa fa-thumbs-up" style="width:25px"></i>'.html_safe, "/news/like?news_id=#{n.id}", :remote => true, :id=>"like_#{n.id}" unless n.is_liked(current_user) %>
-                        <a href="#"> </a> 
+                        <a href="#"> </a> <b>Likes (<%= n.likes.count%>)</b>
                          <a href="#"><i class="fa fa-comment-o"></i> Comments (25)</a>
                       </small>
                     </div>

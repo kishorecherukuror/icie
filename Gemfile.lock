@@ -137,7 +137,7 @@ GEM
     turbolinks (2.5.2)
       coffee-rails
     tzinfo (0.3.42)
-    tzinfo-data (1.2013.9)
+    tzinfo-data (1.2013.8)
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
