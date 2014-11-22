@@ -5,7 +5,7 @@ class EmployeesController < ApplicationController
 
   def new
   	@employee = User.new
-  	@url="/employee"
+  	@url="/employees"
   end
 
   def edit
