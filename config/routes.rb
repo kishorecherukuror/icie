@@ -5,6 +5,7 @@ EiceApp::Application.routes.draw do
   resources :news do
     get 'grid_view', on: :collection
     get 'like', on: :collection
+    get 'unlike', on: :collection
     get 'comment', on: :collection
   end
 

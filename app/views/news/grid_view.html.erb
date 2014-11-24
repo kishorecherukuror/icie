@@ -35,8 +35,14 @@
                      
                       <small class="">
                       <span id="like_<%=n.id%>">
-                      <%= link_to '<i class="fa fa-thumbs-up" style="width:25px"></i>'.html_safe, "/news/like?news_id=#{n.id}", :remote => true, :onclick=>"$(this).hide();"  unless n.is_liked(current_user) %>
-                        <a href="#"> </a> <b>Likes (<%= n.likes.count%>)</b>
+                      <% if n.is_liked(current_user) %>
+                           <%= link_to '<i class="fa fa-thumbs-down" style="width:25px"></i>'.html_safe, "/news/unlike?news_id=#{n.id}", :remote => true, :onclick=>"$(this).hide();"   %>
+                          <a href="#"> </a> <b>You & Likes (<%= n.likes.count%>)</b>
+                      
+                      <%else%>
+                        <%= link_to '<i class="fa fa-thumbs-up" style="width:25px"></i>'.html_safe, "/news/like?news_id=#{n.id}", :remote => true, :onclick=>"$(this).hide();"   %>
+                          <a href="#"> </a> <b>Likes (<%= n.likes.count%>)</b>
+                       <%end%>
                         </span>
                          <a href="#"><i class="fa fa-comment-o"></i> Comments (<span id="comment_<%= n.id %>"><%= n.comments.count %></span>)</a>
                       </small>

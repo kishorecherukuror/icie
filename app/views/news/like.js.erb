@@ -1,1 +1,1 @@
-$("#like_<%=@news.id%>").html("<b>You & Likes (<%= @news.likes.count%>)</b>")
+$("#like_<%=@news.id%>").html('<%= link_to '<i class="fa fa-thumbs-down" style="width:25px"></i>'.html_safe, "/news/unlike?news_id=#{@news.id}", :remote => true, :onclick=>"$(this).hide();"   %>  <a href="#"> </a> <b>You & Likes (<%= @news.likes.count%>)</b>')
