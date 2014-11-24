@@ -15,8 +15,9 @@ class EmployeesController < ApplicationController
 
   def create
   	@employee = User.new(employee_params)
-      @employee.save
-    redirect_to "/employees"
+    @employee.save!
+      redirect_to "/employees"
+
   end
 
   def update
@@ -31,6 +32,6 @@ class EmployeesController < ApplicationController
   end
   private
   	def employee_params
-      params.require(:user).permit(:first_name, :middle_name, :last_name, :contact, :image, :division, :category, :address, :email, :password, :passwordpassword_confirmation)
+      params.require(:user).permit(:first_name, :middle_name, :last_name, :contact, :image, :division, :category, :address, :email, :password,:password_confirmation, :location)
     end
 end

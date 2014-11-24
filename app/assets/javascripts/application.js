@@ -21,3 +21,4 @@
 //= require "js/app.plugin.js"
 //= require "js/app.data.js"
 //= require ckeditor/init
+//= require "js/fbphotobox.js"

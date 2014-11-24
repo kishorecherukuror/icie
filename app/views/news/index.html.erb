@@ -28,7 +28,7 @@
                           
                           <td><%= n.title %></td>
                           <td><%= n.points %></td>
-                          <td ><img src="<%= n.image_a %>" style="width:30px"></td>
+                          <td > <img src="<%= n.image_a %>" style="width:30px"></td>
                           <td style="font-size: 20px"><a href="<%= news_path(n) %>"><i class="fa fa-hand-o-left"></i></a> &nbsp; 
                           <% if can? :update, n %>
                             <a href="<%= edit_news_path(n) %>"><i class="fa fa-pencil"></i> </a>&nbsp; <a href="<%= news_path(n) %>" data-method="delete" rel="nofollow" data-confirm="Are you sure want to delete news?"><i class="fa fa-trash-o"></i></a>
@@ -38,8 +38,9 @@
                       <% end %>
                       </tbody>
                  </table>
+                 
                 </div>
         </section>
+        <div class= 
      </section>
-
 

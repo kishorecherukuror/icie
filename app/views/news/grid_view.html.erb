@@ -1,3 +1,4 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <section id="content">
       <section class="vbox">
         <header class="header bg-white b-b">
@@ -14,9 +15,11 @@
                     <div class="panel-body">
                       <div class="clearfix m-b">
                         <small class="text-muted pull-right"><%= time_ago_in_words(n.created_at)%> ago</small>
-                        <a href="#" class="thumb-sm pull-left m-r">
+                        <div class="thumb-sm pull-left m-r">
+                          <div class="fbphotobox"> 
                           <img src="<%= n.image_a %>" class="img-circle">
-                        </a>
+                        </div>
+                        </div>
                         <div class="clear ">
                           <a href="#"><strong><%= n.title %></strong></a>
                           <small class="block text-muted"></small>
@@ -62,3 +65,27 @@
       </section>
       <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
     </section>
+
+  <script>
+$(document).ready(function() {
+$(".fbphotobox img").fbPhotoBox({
+rightWidth: 360,
+leftBgColor: "black",
+rightBgColor: "white",
+footerBgColor: "black",
+overlayBgColor: "#1D1D1D",
+onImageShow: function() {
+$(".fbphotobox img").fbPhotoBox("addTags",
+[{x:0.3,y:0.3,w:0.3,h:0.3}]
+);
+$(".fbphotobox-image-content").html('<div style="font-size:16px;">Testing Content</div>'+"this is kishopre ceruiku");
+}
+});
+});
+</script>
+<style type="text/css">
+.fbphotobox-main-container{
+  border:0px solid #000 !important;
+}
+
+</style>
