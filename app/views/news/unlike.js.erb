@@ -1,0 +1,1 @@
+$("#like_<%=@news.id%>").html('<%= link_to '<i class="fa fa-thumbs-up" style="width:25px"></i>'.html_safe, "/news/like?news_id=#{@news.id}", :remote => true, :onclick=>"$(this).hide();"   %>  <a href="#"> </a> <b>Likes (<%= @news.likes.count%>)</b>')

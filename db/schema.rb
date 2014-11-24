@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141124154917) do
+ActiveRecord::Schema.define(version: 20141124175816) do
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -56,6 +56,14 @@ ActiveRecord::Schema.define(version: 20141124154917) do
     t.datetime "image_a_updated_at"
   end
 
+  create_table "user_points", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "news_id"
+    t.integer  "points"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -76,10 +84,17 @@ ActiveRecord::Schema.define(version: 20141124154917) do
     t.string   "contact"
     t.text     "address"
     t.integer  "points",                 default: 0
-    t.string   "image"
     t.string   "division"
     t.string   "category"
     t.string   "location"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "string_file_name"
+    t.string   "string_content_type"
+    t.integer  "string_file_size"
+    t.datetime "string_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

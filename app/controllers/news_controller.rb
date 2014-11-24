@@ -43,6 +43,12 @@ class NewsController < ApplicationController
     @news = News.find(params[:news_id])
     Like.create(:user_id=>current_user.id, :news_id=>params[:news_id])
   end
+
+  def unlike
+    @news = News.find(params[:news_id])
+    Like.find_by(:user_id=>current_user.id, :news_id=>params[:news_id]).destroy
+  end
+
   def comment
     @news = News.find(params[:news_id])
     Comment.create(:content=>params[:content], :user_id=>current_user.id, :news_id=>params[:news_id])
