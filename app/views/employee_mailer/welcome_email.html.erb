@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to eice.com, <%= @employee.first_name %></h1>
+    <p>
+      You have successfully signed up to eice.com,<br />
+      your username is: <%= @employee.email %>.<br />
+      your password is: <%= @employee.password %>
+    </p>
+    <p>
+      To login to the site, just follow this link: <%= @url %>.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>

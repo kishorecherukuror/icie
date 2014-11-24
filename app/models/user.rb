@@ -1,11 +1,10 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-
-  # before_validation :auto_password
-  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  before_create :auto_password
   def auto_password
     self.password = Devise.friendly_token.first(8)
+    self.password_confirmation=self.password
   end
 
   devise :database_authenticatable, :registerable,
@@ -15,7 +14,6 @@ class User < ActiveRecord::Base
 
          def full_name
          	"#{self.first_name rescue '' } #{self.middle_name rescue ''} #{self.last_name rescue''}"
-         	
          end
          has_attached_file :image,
            :storage => :dropbox,

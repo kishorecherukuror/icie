@@ -16,6 +16,7 @@ class EmployeesController < ApplicationController
   def create
   	@employee = User.new(employee_params)
     @employee.save!
+    EmployeeMailer.welcome_email(@employee).deliver
       redirect_to "/employees"
 
   end
