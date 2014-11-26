@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
          has_many :likes, :dependent => :destroy
          has_many :comments, :dependent => :destroy
-
+         has_many :news, :through => :likes, :conditions =>"news.created_at BETWEEN datetime('now', 'start of month') AND datetime('now', 'localtime')"
          def full_name
          	"#{self.first_name rescue '' } #{self.middle_name rescue ''} #{self.last_name rescue''}"
          end
