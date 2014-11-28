@@ -56,14 +56,6 @@ ActiveRecord::Schema.define(version: 20141124175816) do
     t.datetime "image_a_updated_at"
   end
 
-  create_table "user_points", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "news_id"
-    t.integer  "points"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false

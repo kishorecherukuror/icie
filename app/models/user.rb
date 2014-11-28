@@ -2,9 +2,39 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   before_validation :auto_password
+
+
+  # role=>
+  # 0=Employee
+  # 1=Super Admin
+  # 2=Hr
+  # 3=Admin
+  # 4=IT
+  # 5=LnD
+  # 6=Info Sec
+
+
   def auto_password
     self.password = Devise.friendly_token.first(8)
     self.password_confirmation=self.password
+  end
+  def role_s
+    if self.role==0
+      "Employee"
+    elsif self.role==1
+      "Super Admin"
+    elsif self.role==2
+      "HR"
+    elsif self.role==3
+      "Admin"
+    elsif self.role==4
+      "IT"
+    elsif self.role==5
+      "LnD"
+    elsif self.role==6
+      "Info Sec"
+    end
+        
   end
 
   devise :database_authenticatable, :registerable,

@@ -25,6 +25,7 @@
                         <th>Location</th>
                         <th>Contact</th>
                         <th>Address</th>
+                        <th>Role</th>
                        <th>Action</th>
                       </tr>
                     </thead>
@@ -41,7 +42,7 @@
                           <td><%= n.location %></td>
                           <td><%= n.contact %></td>
                           <td><%= n.address %></td>
-                          
+                          <td><%= n.role_s %></td>
                           <td style="font-size: 20px">
                           <% if can? :update, n %>
                             <a href="<%= edit_employee_path(n) %>"><i class="fa fa-pencil"></i> </a>&nbsp; <a href="<%= employee_path(n) %>" data-method="delete" rel="nofollow" data-confirm="Are you sure want to delete employees?"><i class="fa fa-trash-o"></i></a>
