@@ -75,9 +75,10 @@ ActiveRecord::Schema.define(version: 20141129135756) do
   end
 
   create_table "posts", force: true do |t|
-    t.boolean  "approved",   default: false
+    t.boolean  "approved",     default: false
     t.integer  "user_type"
-    t.integer  "user_id"
+    t.integer  "user_from_id"
+    t.integer  "user_to_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
