@@ -1,0 +1,84 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <h4 class="modal-title" id="myModalLabel">Give Points</h4>
+  </div>
+  <%= form_tag "/pending/approve", :remote=>true do %>
+  <div class="modal-body">
+  <div class="form-group">
+	  <label class="col-sm-2 control-label" for="input-id-1">Points</label>
+	  <div class="col-sm-10">
+	  	<%= hidden_field_tag :id,"", :id=>"input-id" %>
+	  	<%= hidden_field_tag :class_name,"", :id=>"input-class_name" %>
+	    <%= text_field_tag :points,"", :class=>"form-control",:required=>true %>
+	  </div>
+	</div>
+	<div class="line line-dashed line-lg pull-in"></div>
+        
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <button type="submit" class="btn btn-primary">Approve</button>
+  </div>
+  <% end %>
+</div>
+</div>
+</div>
+
+
+
+<section id="content">
+      <section class="vbox">
+        <header class="header bg-dark">
+          <p>News </span></p>
+        </header>
+        <section class="scrollable wrapper">
+          <div class="row">
+            <div class="col-lg-12">
+              <h3 class="font-thin">Listing For Approve.</h3>
+            </div>
+          </div>
+          
+
+          <div class="table-responsive">
+                  <table class="table table-striped b-t text-sm">
+                    <thead>
+                      <tr>
+                        
+                        <th class="th-sortable" data-toggle="class">Heading
+                          
+                        </th>
+                        <th>User Type</th>
+                        <th>Image</th>
+                       <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% @pending.each do |n| %>
+                        <tr>
+                          <td><%= n.commontable.heading %></td>
+                          <td><%= User.role_s(n.user_type) %></td>
+                          <td > <img src="<%= n.commontable.image %>" style="width:30px"></td>
+                          <td style="font-size: 20px"><a href="<%= post_path(n) %>"><i class="fa fa-hand-o-left"></i></a> &nbsp; 
+                         <i class="fa fa-unlock-alt "   data-remote="true" data-toggle="modal" data-target="#myModal" id="approve" onclick="add_value('<%= n.id %>','Post')"></i> &nbsp; 
+                             <a href="<%= posts_path(n) %>" class ="delete_<%=n.id%>" data-method="delete" rel="nofollow" data-confirm="Are you sure want to delete Post?"><i class="fa fa-trash-o"></i></a>
+                            </td>
+                          
+                        </tr>
+                      <% end %>
+                      </tbody>
+                 </table>
+                 
+                </div>
+        </section>
+        
+     </section>
+     <script type="text/javascript">
+		 function add_value(id,class_name) {
+		     $(".modal-body #input-id").val( id );
+		     $(".modal-body #input-class_name").val( class_name );
+		 }
+     </script>
+

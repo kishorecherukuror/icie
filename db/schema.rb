@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141124175816) do
+ActiveRecord::Schema.define(version: 20141129135756) do
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -37,6 +37,24 @@ ActiveRecord::Schema.define(version: 20141124175816) do
     t.datetime "updated_at"
   end
 
+  create_table "commontables", force: true do |t|
+    t.string   "heading"
+    t.text     "content"
+    t.integer  "points",              default: 0
+    t.integer  "parent_table_id"
+    t.string   "parent_table_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "string_file_name"
+    t.string   "string_content_type"
+    t.integer  "string_file_size"
+    t.datetime "string_updated_at"
+  end
+
   create_table "likes", force: true do |t|
     t.integer  "user_id"
     t.integer  "news_id"
@@ -54,6 +72,14 @@ ActiveRecord::Schema.define(version: 20141124175816) do
     t.string   "image_a_content_type"
     t.integer  "image_a_file_size"
     t.datetime "image_a_updated_at"
+  end
+
+  create_table "posts", force: true do |t|
+    t.boolean  "approved",   default: false
+    t.integer  "user_type"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

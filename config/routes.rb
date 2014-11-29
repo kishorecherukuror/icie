@@ -1,5 +1,9 @@
 EiceApp::Application.routes.draw do
 
+  get "pending"=>"pending#index"
+  post "/pending/approve"
+  resources :posts
+    
   resources :employees
   mount Ckeditor::Engine => '/ckeditor'
   resources :news do

@@ -19,19 +19,22 @@ class User < ActiveRecord::Base
     self.password_confirmation=self.password
   end
   def role_s
-    if self.role==0
+    User.role_s(self.role)
+  end
+  def self.role_s(role)
+    if role==0
       "Employee"
-    elsif self.role==1
+    elsif role==1
       "Super Admin"
-    elsif self.role==2
+    elsif role==2
       "HR"
-    elsif self.role==3
+    elsif role==3
       "Admin"
-    elsif self.role==4
+    elsif role==4
       "IT"
-    elsif self.role==5
+    elsif role==5
       "LnD"
-    elsif self.role==6
+    elsif role==6
       "Info Sec"
     end
         

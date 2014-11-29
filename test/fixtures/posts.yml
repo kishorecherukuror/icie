@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  approve: false
+  user_type: 1
+  user_id: 1
+
+two:
+  approve: false
+  user_type: 1
+  user_id: 1
