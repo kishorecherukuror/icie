@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   respond_to :html
 
   def index
-    @post=Post.all
+    @posts=Post.all.where(:approved=>true)
   end
 
   def show

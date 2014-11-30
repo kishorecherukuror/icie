@@ -4,6 +4,54 @@ class Ability
   def initialize(user)
     if user.role == 1
       can :manage, :all
+    elsif user.role == 0
+        
+        can :read, Post, :approved=>true, :user_to_id => user.id
+        can :read, Post, :approved=>true, :user_type => -1
+
+        can :manage, Post, :user_from_id => user.id
+        can :read, News
+        can :create, Post
+    elsif user.role == 2
+        can :read, Post, :approved=>true, :user_type => 2
+        can :read, Post, :approved=>true, :user_to_id => user.id
+        can :read, Post, :approved=>true, :user_type => -1
+
+        can :manage, Post, :user_from_id => user.id
+        can :read, News
+        can :create, Post
+    elsif user.role == 3
+        can :read, Post, :approved=>true, :user_type => 3
+        can :read, Post, :approved=>true, :user_to_id => user.id
+        can :read, Post, :approved=>true, :user_type => -1
+
+        can :manage, Post, :user_from_id => user.id
+        can :read, News
+        can :create, Post
+    elsif user.role == 4
+        can :read, Post, :approved=>true, :user_type => 4
+        can :read, Post, :approved=>true, :user_to_id => user.id
+        can :read, Post, :approved=>true, :user_type => -1
+
+        can :manage, Post, :user_from_id => user.id
+        can :read, News
+        can :create, Post
+     elsif user.role == 5
+        can :read, Post, :approved=>true, :user_type => 5
+        can :read, Post, :approved=>true, :user_to_id => user.id
+        can :read, Post, :approved=>true, :user_type => -1
+
+        can :manage, Post, :user_from_id => user.id
+        can :read, News
+        can :create, Post
+     elsif user.role == 6
+        can :read, Post, :approved=>true, :user_type => 6
+        can :read, Post, :approved=>true, :user_to_id => user.id
+        can :read, Post, :approved=>true, :user_type => -1
+
+        can :manage, Post, :user_from_id => user.id
+        can :read, News
+        can :create, Post
     else
       can :read, :all
     end
@@ -19,7 +67,7 @@ class Ability
     # The first argument to `can` is the action you are giving the user 
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions
-    # here are :read, :create, :update and :destroy.
+    # here are :read, :create,, :update and :destroy.
     #
     # The second argument is the resource the user can perform the action on. 
     # If you pass :all it will apply to every resource. Otherwise pass a Ruby
