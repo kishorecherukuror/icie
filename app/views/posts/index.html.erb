@@ -1,0 +1,85 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<section id="content">
+      <section class="vbox">
+        <header class="header bg-white b-b">
+          <p>All News in Grid</p>
+        </header>
+        <section class="scrollable wrapper">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="row">
+             
+               <% @posts.each do |post| %>  
+               <% if can? :read, post %>
+                <div class="col-lg-4 col-sm-6">
+                  <section class="panel">
+                    <div class="panel-body">
+                      <div class="clearfix m-b">
+                        <small class="text-muted pull-right"><%= time_ago_in_words(post.created_at)%> ago</small>
+                        <div class="thumb-sm pull-left m-r">
+                          <div class="fbphotobox"> 
+                          <img src="<%= post.commontable.image %>" class="img-circle">
+                        </div>
+                        </div>
+                        <div class="clear ">
+                          <a href="#"><strong><%= post.commontable.heading %></strong></a>
+                          <small class="block text-muted"></small>
+                        </div>
+                        
+                      </div>
+                        <p>
+                          <%= post.commontable.content.html_safe %>
+                        </p>
+                       <div class="pull-right">
+                       <a href="<%= news_path(post) %>">view Detail</a>
+                       </div> 
+                     
+                      <small class="">
+                      
+                      </small>
+                    </div>
+                    <footer class="panel-footer pos-rlt">
+                      <span class="arrow top"></span>
+                      </footer>
+                  </section>
+                </div>
+               <% end %>
+               <% end %>
+
+
+
+
+              </div>
+              <div class="text-center m-b">
+                <i class="fa fa-spinner fa fa-spin"></i>
+              </div>
+            </div>
+          </div>          
+        </section>
+      </section>
+      <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+    </section>
+
+  <script>
+$(document).ready(function() {
+$(".fbphotobox img").fbPhotoBox({
+rightWidth: 360,
+leftBgColor: "black",
+rightBgColor: "white",
+footerBgColor: "black",
+overlayBgColor: "#1D1D1D",
+onImageShow: function() {
+$(".fbphotobox img").fbPhotoBox("addTags",
+[{x:0.3,y:0.3,w:0.3,h:0.3}]
+);
+$(".fbphotobox-image-content").html('<div style="font-size:16px;">Testing Content</div>'+"this is kishopre ceruiku");
+}
+});
+});
+</script>
+<style type="text/css">
+.fbphotobox-main-container{
+  border:0px solid #000 !important;
+}
+
+</style>

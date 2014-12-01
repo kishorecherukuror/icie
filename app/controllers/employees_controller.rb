@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
   def index
-  	@employees=User.where(:role=>0)
+  	@employees=User.where.not(:role=>1)
   end
 
   def new
@@ -33,6 +33,6 @@ class EmployeesController < ApplicationController
   end
   private
   	def employee_params
-      params.require(:user).permit(:first_name, :middle_name, :last_name, :contact, :image, :division, :category, :address, :email, :password,:password_confirmation, :location)
+      params.require(:user).permit(:first_name, :middle_name, :last_name, :contact, :image, :division, :category, :address, :email, :password,:password_confirmation, :location, :role)
     end
 end
