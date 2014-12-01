@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141129135756) do
+ActiveRecord::Schema.define(version: 20141201082335) do
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -53,6 +53,18 @@ ActiveRecord::Schema.define(version: 20141129135756) do
     t.string   "string_content_type"
     t.integer  "string_file_size"
     t.datetime "string_updated_at"
+  end
+
+  create_table "contests", force: true do |t|
+    t.string   "category"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "documents", force: true do |t|
+    t.string   "category"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "likes", force: true do |t|

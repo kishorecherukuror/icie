@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!#check_permision#, :only => [:new, :crezte, :edit, :update, :destroy]
+  before_filter :authenticate_user!#check_permision#, :only => [:new, :create, :edit, :update, :destroy]
   respond_to :html
 
   def index
