@@ -1,10 +1,12 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  before_create :auto_password
+  #before_validation :auto_password
   def auto_password
+    
     self.password = Devise.friendly_token.first(8)
     self.password_confirmation=self.password
+  
   end
 
   devise :database_authenticatable, :registerable,

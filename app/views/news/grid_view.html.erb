@@ -8,7 +8,7 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="row">
-             
+             <div class="fbphotobox"> 
                <% @news.each do |n| %>  
                 <div class="col-lg-4 col-sm-6">
                   <section class="panel">
@@ -16,9 +16,9 @@
                       <div class="clearfix m-b">
                         <small class="text-muted pull-right"><%= time_ago_in_words(n.created_at)%> ago</small>
                         <div class="thumb-sm pull-left m-r">
-                          <div class="fbphotobox"> 
+                          
                           <img src="<%= n.image_a %>" class="img-circle">
-                        </div>
+                        
                         </div>
                         <div class="clear ">
                           <a href="#"><strong><%= n.title %></strong></a>
@@ -26,8 +26,9 @@
                         </div>
                         
                       </div>
-                        <p>
-                          <%= n.content.html_safe %>
+    
+                        <p><div class="comment more">
+                          <%= n.content.html_safe %></div>
                         </p>
                        <div class="pull-right">
                        <a href="<%= news_path(n) %>">view Detail</a>
@@ -57,7 +58,7 @@
                   </section>
                 </div>
                <% end %>
-
+             </div>
 
 
 
@@ -87,11 +88,61 @@ $(".fbphotobox img").fbPhotoBox("addTags",
 $(".fbphotobox-image-content").html('<div style="font-size:16px;">Testing Content</div>'+"this is kishopre ceruiku");
 }
 });
+var showChar = 20;
+    var ellipsestext = "...";
+    var moretext = "more";
+    var lesstext = "less";
+    $('.more').each(function() {
+        var content = $(this).html();
+ 
+        if(content.length > showChar) {
+ 
+            var c = content.substr(0, showChar);
+            var h = content.substr(showChar-1, content.length - showChar);
+ 
+            var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+ 
+            $(this).html(html);
+        }
+ 
+    });
+ 
+    $(".morelink").click(function(){
+        if($(this).hasClass("less")) {
+            $(this).removeClass("less");
+            $(this).html(moretext);
+        } else {
+            $(this).addClass("less");
+            $(this).html(lesstext);
+        }
+        $(this).parent().prev().toggle();
+        $(this).prev().toggle();
+        return false;
+    });
 });
 </script>
 <style type="text/css">
 .fbphotobox-main-container{
   border:0px solid #000 !important;
 }
+a {
+    color: #0254EB
+}
+a:visited {
+    color: #0254EB
+}
+a.morelink {
+    text-decoration:none;
+    outline: none;
+}
+.morecontent span {
+    display: none;
+}
+.comment {
+    width: 400px;
+    background-color: #f0f0f0;
+    margin: 10px;
+}
 
 </style>
+
