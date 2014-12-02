@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
-  # before_validation :auto_password
+   before_validation :auto_password
 
 
 
@@ -17,9 +17,10 @@ class User < ActiveRecord::Base
 
 
   def auto_password
-    
-    self.password = Devise.friendly_token.first(8)
-    self.password_confirmation=self.password
+     self.password = "123456789"
+     self.password_confirmation= "123456789"
+    #self.password = Devise.friendly_token.first(8)
+    #self.password_confirmation=self.password
   
   end
   def role_s
