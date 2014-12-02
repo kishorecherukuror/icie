@@ -1,6 +1,6 @@
 class NewsController < ApplicationController
   before_action :set_news, only: [:show, :edit, :update, :destroy]
-  before_filter :check_permision, :only => [:new, :crezte, :edit, :update, :destroy]
+  before_filter :check_permision, :only => [:new, :create, :edit, :update, :destroy]
   respond_to :html
 
   def index

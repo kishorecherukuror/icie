@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  #before_validation :auto_password
+
+  # before_validation :auto_password
+
 
 
   # role=>

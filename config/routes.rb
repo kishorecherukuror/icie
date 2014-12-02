@@ -3,8 +3,9 @@ EiceApp::Application.routes.draw do
   get "pending"=>"pending#index"
   post "/pending/approve"
   resources :posts
-    
+  resources :documents
   resources :employees
+  resources :contests 
   mount Ckeditor::Engine => '/ckeditor'
   resources :news do
     get 'grid_view', on: :collection
